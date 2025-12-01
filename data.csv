@@ -1,7 +1,0 @@
-ID,Timestamp,Button Name,Pitch,Roll,Heading,Latitude,Longitude,Remarks,Stopped,Did you?,Conclude,Location,Severity,Photo Taken,T1,T2,T3
-1,"12/1/2025, 3:27:21 PM",Stop,0,0,0,0,0,lololol,false,Yes,,,,,,,
-2,"12/1/2025, 3:27:29 PM",Start,0,0,0,0,0,gdbgftft,,,,,,,,,
-3,"12/1/2025, 3:27:31 PM",Damage,0,0,0,0,0,,,,,,Low,true,,,
-4,"12/1/2025, 3:32:21 PM",test,0,0,0,0,0,,,,,,,,testeee,true,a
-5,"12/1/2025, 3:54:07 PM",Start,0,0,0,0,0,grgrrgrgrr,,,,,,,,,
-6,"12/1/2025, 3:54:40 PM",test,0,0,0,0,0,66666666666666,,,,,,,T!,true,a
