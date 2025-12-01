@@ -1,5 +1,3 @@
-ID,Timestamp,Button Name,Pitch,Roll,Heading,Latitude,Longitude,Remarks,Location,Abory now,Severity,Photo Taken
-1,"12/1/2025, 10:15:32 AM",Start,0,0,0,0,0,,,,,
-2,"12/1/2025, 10:15:44 AM",Damage,0,0,0,0,0,,,,Low,false
-3,"12/1/2025, 10:16:32 AM",Abort,0,0,0,0,0,,,true,,
-4,"12/1/2025, 10:19:30 AM",Start,0,0,0,0,0,yeyye,brrrrr,,,
+ID,Timestamp,Button Name,Pitch,Roll,Heading,Latitude,Longitude,Remarks,Severity,Photo Taken,Location
+1,"12/1/2025, 2:33:36 PM",Start,0,0,0,0,0,fghhftg,,,145645
+2,"12/1/2025, 2:33:57 PM",Damage,0,0,0,0,0,,Medium,true,
