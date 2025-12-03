@@ -86,21 +86,45 @@ app.post('/data', (req, res) => {
     }
 });
 
+function flattenObject(obj, parentKey = '') {
+    let result = {};
+
+    for (const key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            const propName = parentKey ? `${parentKey}_${key}` : key;
+            if (typeof obj[key] === 'object' && obj[key] !== null && !Array.isArray(obj[key])) {
+                Object.assign(result, flattenObject(obj[key], propName));
+            } else if (Array.isArray(obj[key])) {
+                obj[key].forEach((item, index) => {
+                    Object.assign(result, flattenObject(item, `${propName}_${index}`));
+                });
+            } else {
+                result[propName] = obj[key];
+            }
+        }
+    }
+
+    return result;
+}
+
 app.post('/divelog', (req, res) => {
     const diveLogData = req.body;
     const diveNo = diveLogData.diveNo || 'dive';
     const projNo = diveLogData.projNo || 'project';
-    const filename = `${projNo}_${diveNo}.json`;
+    const filename = `${projNo}_${diveNo}.csv`;
     const filePath = path.join(__dirname, filename);
 
-    fs.writeFile(filePath, JSON.stringify(diveLogData, null, 2), (err) => {
-        if (err) {
-            console.error(err);
-            return res.status(500).send('Error saving dive log.');
-        }
+    const flattenedData = flattenObject(diveLogData);
+    
+    const headers = Object.keys(flattenedData);
+    const rows = [flattenedData];
+
+    const ws = fs.createWriteStream(filePath);
+    csv.write(rows, { headers: headers }).pipe(ws).on('finish', () => {
         res.status(200).send('Dive log saved successfully.');
     });
 });
+
 
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
