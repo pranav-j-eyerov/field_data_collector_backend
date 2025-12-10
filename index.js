@@ -25,7 +25,7 @@ app.post('/data', (req, res) => {
     }
 
     // Basic security measure to prevent directory traversal
-    const safeFilename = path.basename(fileName);
+    const safeFilename = path.basename(`${fileName}.csv`);
     const csvFilePath = path.join(dataDir, safeFilename);
 
     const flattenedRow = {
