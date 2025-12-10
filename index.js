@@ -31,6 +31,8 @@ app.post('/data', (req, res) => {
     const flattenedRow = {
         ID: newRowData.id,
         Timestamp: newRowData.timestamp,
+        Depth: newRowData.depth,
+        Altitude: newRowData.altitude,
         'Button Name': newRowData.buttonName,
         Pitch: newRowData.pitch,
         Roll: newRowData.roll,
